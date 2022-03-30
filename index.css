@@ -162,6 +162,58 @@ a {
 }
 
 /*
+  • --for-vigie styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.--for-vigie.paywall-component .paywall-component__options {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  gap: 3.125rem;
+}
+.--for-vigie.paywall-component .paywall-component__options > * {
+  max-width: calc((100% - 3.125rem) / 2);
+  flex-grow: 1;
+}
+.--for-vigie.paywall-component .option-item {
+  display: flex;
+  height: max-content;
+  min-width: unset;
+  color: #fff;
+  font-weight: 500;
+}
+.--for-vigie.paywall-component .option-item__name {
+  padding: 0;
+  font-size: 2.1875rem;
+  writing-mode: vertical-rl;
+  text-align: right;
+  transform: rotate(180deg);
+}
+.--for-vigie.paywall-component .option-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1.5625rem;
+}
+.--for-vigie.paywall-component .option-item__title {
+  min-height: 5rem;
+  padding-bottom: 0.9375rem;
+  max-width: 100%;
+}
+.--for-vigie.paywall-component .option-item__pricing {
+  padding: 0.9375rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media all and (max-width: 488px) {
+  .paywall-component__options > * {
+    max-width: 100% !important;
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+/*
   • Option item
   ---------- ---------- ---------- ---------- ----------
 */
@@ -213,6 +265,12 @@ a {
   font-size: 2em;
   font-weight: 400;
 }
+.pricing-item__list {
+  padding: 1.5625rem 0;
+}
+.pricing-item__list li {
+  margin-bottom: 1.5625rem;
+}
 
 /*
   • paywall cta
@@ -235,7 +293,6 @@ a {
   line-height: 2rem;
 }
 .paywall-cta .pricing-item {
-  line-height: 1rem;
   padding-left: 3.125rem;
   padding-right: 3.125rem;
   border-left: 1px solid rgba(0, 0, 0, 0.2);

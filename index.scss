@@ -184,6 +184,78 @@ a {
 }
 
 /*
+  • --for-vigie styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.--for-vigie.paywall-component {
+  .paywall-component {
+    &__options {
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      flex-wrap: wrap;
+      gap: rem(50);
+
+      //remove space between items before calculating their width
+      > * {
+        max-width: calc((100% - rem(50)) / 2);
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .option-item {
+    display: flex;
+    height: max-content;
+    min-width: unset;
+    color: #fff;
+    font-weight: 500;
+
+    &__name {
+      padding: 0;
+      font-size: rem(35);
+      writing-mode: vertical-rl;
+      text-align: right;
+      transform: rotate(180deg);
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 0 rem(25);
+    }
+
+    &__title {
+      min-height: rem(80);
+      padding-bottom: rem(15);
+      max-width: 100%;
+    }
+
+    &__pricing {
+      padding: rem(15) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+@media all and (max-width: 488px) {
+  .paywall-component {
+    &__options {
+
+      //remove space between items before calculating their width
+      > * {
+        //Todo: find a way to remove !important use here
+        max-width: 100% !important;
+        width: 100%;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+/*
   • Option item
   ---------- ---------- ---------- ---------- ----------
 */
@@ -242,6 +314,15 @@ a {
     font-size: 2em;
     font-weight: 400;
   }
+
+  &__list {
+    padding: rem(25) 0;
+
+    // Todo: fix list circle style
+    li {
+      margin-bottom: rem(25);
+    }
+  }
 }
 
 /*
@@ -269,7 +350,6 @@ a {
   }
 
   .pricing-item {
-    line-height: 1rem;
     padding-left: rem(50);
     padding-right: rem(50);
     border-left: 1px solid rgba(0, 0, 0, 0.2);
