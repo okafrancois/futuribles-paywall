@@ -1,0 +1,241 @@
+@charset "UTF-8";
+/*
+  Index
+  ---------- ---------- ---------- ---------- ----------
+  • Variables
+  • Functions
+*/
+/*
+  • Variables
+  ---------- ---------- ---------- ---------- ----------
+*/
+/*
+  • Functions
+  ---------- ---------- ---------- ---------- ----------
+*/
+/*
+  Index
+  ---------- ---------- ---------- ---------- ----------
+  • Config
+  • Base Styles
+  • --push Styles
+  • Option item
+  • Pricing item
+*/
+/*
+  • Config
+  ---------- ---------- ---------- ---------- ----------
+*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  background: #000;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 2rem;
+  min-width: fit-content;
+  max-width: max-content;
+  transition: background-color 0.3s ease-in;
+}
+.c-button:hover {
+  background: #4D4D4F;
+}
+.c-button__icon {
+  background-color: #fff;
+  border-radius: 50%;
+  min-width: 25px;
+  height: 25px;
+  margin-left: 0.625rem;
+  display: inline-block;
+}
+
+.bg-red {
+  background: #C6182F;
+}
+
+.bg-blue {
+  background: #2E5EAA;
+}
+
+.bg-green {
+  background: #32A287;
+}
+
+/*
+  • Base Styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.paywall-component {
+  font-family: sans-serif;
+  font-weight: 400;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  margin: auto;
+}
+.paywall-component__container {
+  max-width: 72.5rem;
+  padding: 2.5rem 1.5625rem;
+  margin: auto;
+}
+.paywall-component__container > :not(:first-child) {
+  margin-top: 3.125rem;
+}
+.paywall-component__title {
+  font-size: 2.5rem;
+  max-width: 70%;
+  font-weight: inherit;
+}
+.paywall-component__headers > :not(:first-child) {
+  margin-top: 0.625rem;
+}
+.paywall-component__subtitles {
+  font-weight: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 4rem;
+}
+.paywall-component__subtitles-text {
+  font-size: 1.5em;
+}
+.paywall-component__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.125rem;
+}
+.paywall-component__options > * {
+  flex-basis: calc((100% - 6.25rem) / 3);
+}
+
+@media all and (max-width: 488px) {
+  .paywall-component__title {
+    max-width: 100%;
+  }
+  .paywall-component__options {
+    gap: 1.5625rem;
+  }
+  .paywall-component__options > * {
+    flex-basis: 100%;
+  }
+}
+/*
+  • --push styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.--push .paywall-component__subtitles-text {
+  display: none;
+}
+.--push .paywall-component__headers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.--push .paywall-component__headers > :not(:first-child) {
+  margin-top: 0.625rem;
+}
+
+/*
+  • Option item
+  ---------- ---------- ---------- ---------- ----------
+*/
+.option-item {
+  display: flex;
+  height: 400px;
+  min-width: fit-content;
+  padding: 2.8125rem 1.5625rem;
+  color: #fff;
+  font-weight: 500;
+}
+.option-item__name {
+  padding: 0;
+  font-size: 2.1875rem;
+  writing-mode: vertical-rl;
+  text-align: right;
+  transform: rotate(180deg);
+}
+.option-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1.5625rem;
+}
+.option-item__content > :not(:first-child) {
+  margin-top: 1.5625rem;
+}
+.option-item__title {
+  font-size: 1.3em;
+  font-weight: inherit;
+  padding-bottom: 1.5625rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/*
+  • Pricing item
+  ---------- ---------- ---------- ---------- ----------
+*/
+.pricing-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.pricing-item__title, .pricing-item__option {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+.pricing-item__price {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+/*
+  • paywall cta
+  ---------- ---------- ---------- ---------- ----------
+*/
+.paywall-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3.125rem;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.paywall-cta > * {
+  flex-basis: calc((100% - 7.8125rem) / 3);
+}
+.paywall-cta__title {
+  font-size: 1.5rem;
+}
+.paywall-cta .pricing-item {
+  padding-left: 3.125rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.paywall-cta .pricing-item__price {
+  font-size: 2em;
+  margin-top: 0.625rem;
+}
+
+@media all and (max-width: 768px) {
+  .paywall-cta > * {
+    flex-basis: 100%;
+  }
+  .paywall-cta .pricing-item {
+    padding-left: 0;
+    border-left: 0;
+    padding-top: 3.125rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

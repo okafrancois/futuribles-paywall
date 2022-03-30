@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
+
+/*
+  Index
+  ---------- ---------- ---------- ---------- ----------
+  • Variables
+  • Functions
+*/
+
+/*
+  • Variables
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+$palette: (
+        'black': #000,
+        'near-black': #0C0C0E,
+        'gray-darker': #1B1B1C,
+        'gray-dark': #4D4D4F,
+        'gray-light': #737375,
+        'gray-hover': #A1A1A1,
+        'near-white': #F4F6F8,
+        'white': #FFF,
+        'blue': #2E5EAA,
+        'red': #C6182F,
+        'purple': #632A6C,
+        'green': #32A287,
+        'yellow': #F3BC69,
+);
+
+$ref-space: rem(30);
+
+/*
+  • Functions
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+@function rem ($num, $base: 16) {
+  @return math.div(strip-unit($num), $base) * 1rem;
+}
+
+@function strip-unit ($number) {
+  @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
+}
+

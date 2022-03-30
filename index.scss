@@ -1,0 +1,272 @@
+@use 'sass:map';
+@use 'sass/config' as *;
+
+/*
+  Index
+  ---------- ---------- ---------- ---------- ----------
+  • Config
+  • Base Styles
+  • --push Styles
+  • Option item
+  • Pricing item
+*/
+
+/*
+  • Config
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  background: map.get($palette, 'black');
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 2rem;
+  min-width: fit-content;
+  max-width: max-content;
+  transition: background-color 0.3s ease-in;
+
+  &:hover {
+    background: map.get($palette, 'gray-dark');
+  }
+
+  &__icon {
+    background-color: #fff;
+    border-radius: 50%;
+    min-width: 25px;
+    height: 25px;
+    margin-left: rem(10);
+    display: inline-block;
+  }
+}
+
+.bg-red {
+  background: map.get($palette, 'red');;
+}
+
+.bg-blue {
+  background: map.get($palette, 'blue');;
+}
+
+.bg-green {
+  background: map.get($palette, 'green');;
+}
+
+/*
+  • Base Styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.paywall-component {
+  font-family: sans-serif;
+  font-weight: 400;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  margin: auto;
+
+  &__container {
+    max-width: rem(1160);
+    padding: rem(40) rem(25);
+    margin: auto;
+
+    > :not(:first-child) {
+      margin-top: rem(50);
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    max-width: 70%;
+    font-weight: inherit;
+  }
+
+  &__headers {
+    > :not(:first-child) {
+      margin-top: rem(10);
+    }
+  }
+
+  &__subtitles {
+    font-weight: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 4rem;
+  }
+
+  &__subtitles-text {
+    font-size: 1.5em;
+  }
+
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(50);
+
+    //remove space between items before calculating their width
+    > * {
+      flex-basis: calc((100% - rem(100)) / 3);
+    }
+  }
+}
+
+@media all and (max-width: 488px) {
+  .paywall-component {
+    &__title {
+      max-width: 100%;
+    }
+
+    &__options {
+      gap: rem(25);
+
+      > * {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+
+/*
+  • --push styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.--push {
+  .paywall-component {
+    &__subtitles-text {
+      display: none;
+    }
+    &__headers {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      > :not(:first-child) {
+        margin-top: rem(10);
+      }
+    }
+  }
+}
+
+/*
+  • Option item
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.option-item {
+  display: flex;
+  height: 400px;
+  min-width: fit-content;
+  padding: rem(45) rem(25);
+  color: #fff;
+  font-weight: 500;
+
+  &__name {
+    padding: 0;
+    font-size: rem(35);
+    writing-mode: vertical-rl;
+    text-align: right;
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 rem(25);
+
+    > :not(:first-child) {
+      margin-top: rem(25);
+    }
+  }
+
+  &__title {
+    font-size: 1.3em;
+    font-weight: inherit;
+    padding-bottom: rem(25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/*
+  • Pricing item
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.pricing-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  &__title,
+  &__option {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+
+  &__price {
+    font-size: 2em;
+    font-weight: 400;
+  }
+}
+
+/*
+  • paywall cta
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.paywall-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(50);
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  //remove space between items before calculating their width
+  > * {
+    flex-basis: calc((100% - rem(125)) / 3);
+  }
+
+  &__title {
+    font-size: 1.5rem;
+  }
+
+  .pricing-item {
+    padding-left: rem(50);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+
+    &__price {
+      font-size: 2em;
+      margin-top: rem(10);
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .paywall-cta {
+    > * {
+      flex-basis: 100%;
+    }
+
+    .pricing-item {
+      padding-left: 0;
+      border-left: 0;
+      padding-top: rem(50);
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}
