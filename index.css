@@ -41,24 +41,25 @@ a {
 .c-button {
   display: inline-flex;
   align-items: center;
-  background: #000;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border-radius: 2rem;
-  min-width: fit-content;
+  min-width: max-content;
   max-width: max-content;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.125rem;
+  background: #000;
+  color: #fff;
   transition: background-color 0.3s ease-in;
 }
 .c-button:hover {
   background: rgba(0, 0, 0, 0.7);
 }
 .c-button__icon {
-  background-color: #fff;
-  border-radius: 50%;
-  min-width: 25px;
-  height: 25px;
-  margin-left: 0.625rem;
   display: inline-block;
+  margin-left: 0.625rem;
+  height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  background-color: #fff;
 }
 
 .bg-red {
@@ -82,22 +83,22 @@ a {
   ---------- ---------- ---------- ---------- ----------
 */
 .paywall-component {
-  font-family: sans-serif;
+  font-family: "forma-djr-text", sans-serif;
   font-weight: 400;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000;
   margin: auto;
 }
 .paywall-component__container {
-  max-width: 72.5rem;
+  max-width: 72.8125rem;
   padding: 2.5rem 1.5625rem;
-  margin: auto;
+  margin: 0 auto;
 }
 .paywall-component__container > :not(:first-child) {
   margin-top: 3.125rem;
 }
 .paywall-component__title {
-  font-size: 2.5rem;
+  font-size: 2.8125rem;
+  line-height: 130%;
   max-width: 75%;
   font-weight: inherit;
 }
@@ -113,19 +114,20 @@ a {
   gap: 1rem 4rem;
 }
 .paywall-component__subtitles-text {
-  font-size: 1.5em;
+  font-size: 1.6875rem;
+  line-height: 130%;
 }
 .paywall-component__options {
   display: flex;
   flex-wrap: wrap;
-  gap: 3.125rem;
+  gap: 3.75rem;
 }
 .paywall-component__options > * {
-  max-width: calc((100% - 6.25rem) / 3);
+  max-width: calc((100% - 7.5rem) / 3);
   flex-grow: 1;
 }
 
-@media all and (max-width: 488px) {
+@media all and (max-width: 580px) {
   .paywall-component__title {
     max-width: 100%;
   }
@@ -136,94 +138,12 @@ a {
     width: 100%;
   }
 }
-/*
-  • --push styles
-  ---------- ---------- ---------- ---------- ----------
-*/
-.--push .paywall-component__subtitles-text {
-  display: none;
-}
-.--push .paywall-component__headers {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-wrap: wrap;
-}
-.--push .paywall-component__headers > :not(:first-child) {
-  margin-top: 0.625rem;
-}
-
-/*
-  • --pro styles
-  ---------- ---------- ---------- ---------- ----------
-*/
-.--pro.paywall-component .pricing-item__title {
-  font-size: 0.8rem;
-}
-
-/*
-  • --for-vigie styles
-  ---------- ---------- ---------- ---------- ----------
-*/
-.--for-vigie.paywall-component .paywall-component__options {
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  flex-wrap: wrap;
-  gap: 3.125rem;
-}
-.--for-vigie.paywall-component .paywall-component__options > * {
-  max-width: calc((100% - 3.125rem) / 2);
-  flex-grow: 1;
-}
-.--for-vigie.paywall-component .option-item {
-  display: flex;
-  height: max-content;
-  min-width: unset;
-  color: #fff;
-  font-weight: 500;
-}
-.--for-vigie.paywall-component .option-item__name {
-  padding: 0;
-  font-size: 2.1875rem;
-  writing-mode: vertical-rl;
-  text-align: right;
-  transform: rotate(180deg);
-}
-.--for-vigie.paywall-component .option-item__content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 0 1.5625rem;
-}
-.--for-vigie.paywall-component .option-item__title {
-  min-height: 5rem;
-  padding-bottom: 0.9375rem;
-  max-width: 100%;
-}
-.--for-vigie.paywall-component .option-item__pricing {
-  padding: 0.9375rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-@media all and (max-width: 488px) {
-  .paywall-component__options > * {
-    max-width: 100% !important;
-    width: 100%;
-    flex-grow: 1;
-  }
-}
-/*
-  • Option item
-  ---------- ---------- ---------- ---------- ----------
-*/
 .option-item {
   display: flex;
   height: 400px;
-  min-width: fit-content;
+  min-width: min-content;
   padding: 2.8125rem 1.5625rem;
   color: #fff;
-  font-weight: 500;
 }
 .option-item__name {
   padding: 0;
@@ -239,8 +159,8 @@ a {
   padding: 0 1.5625rem;
 }
 .option-item__title {
-  font-size: 1.3em;
-  line-height: 2rem;
+  font-size: 1.6875rem;
+  line-height: 130%;
   font-weight: inherit;
   padding-bottom: 1.5625rem;
   max-width: min-content;
@@ -258,18 +178,18 @@ a {
   padding-top: 1.5625rem;
 }
 .pricing-item__title, .pricing-item__option {
-  font-size: 0.8em;
-  line-height: 1rem;
+  font-size: 0.875rem;
 }
 .pricing-item__price {
-  font-size: 2em;
-  font-weight: 400;
+  font-size: 2.1875rem;
+  margin: 0.625rem 0;
+  line-height: 130%;
 }
 .pricing-item__list {
-  padding: 1.5625rem 0;
+  padding: 1.875rem 0;
 }
 .pricing-item__list li {
-  margin-bottom: 1.5625rem;
+  margin-bottom: 1.875rem;
 }
 
 /*
@@ -318,5 +238,84 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
+/*
+  • --push styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.--push .paywall-component__subtitles-text {
+  display: none;
+}
+.--push .paywall-component__headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.--push .paywall-component__headers > :not(:first-child) {
+  margin-top: 0.625rem;
+}
+
+/*
+  • --pro styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.--pro.paywall-component .pricing-item__title {
+  font-size: 0.8rem;
+}
+
+/*
+  • --for-vigie styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+.--for-vigie.paywall-component .paywall-component__options {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-wrap: wrap;
+  gap: 3.125rem;
+}
+.--for-vigie.paywall-component .paywall-component__options > * {
+  max-width: calc((100% - 3.125rem) / 2);
+  flex-grow: 1;
+}
+.--for-vigie.paywall-component .option-item {
+  display: flex;
+  height: max-content;
+  min-width: min-content;
+}
+.--for-vigie.paywall-component .option-item__name {
+  padding: 0;
+  font-size: 2.1875rem;
+  writing-mode: vertical-rl;
+  text-align: right;
+  transform: rotate(180deg);
+}
+.--for-vigie.paywall-component .option-item__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 1.5625rem;
+}
+.--for-vigie.paywall-component .option-item__title {
+  min-height: 5rem;
+  padding-bottom: 0.9375rem;
+  max-width: 100%;
+}
+.--for-vigie.paywall-component .option-item__pricing {
+  padding: 0.9375rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media all and (max-width: 488px) {
+  .paywall-component__options > * {
+    max-width: 100% !important;
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+/*
+  • Option item
+  ---------- ---------- ---------- ---------- ----------
+*/
 
 /*# sourceMappingURL=index.css.map */

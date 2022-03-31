@@ -32,12 +32,13 @@ a {
 .c-button {
   display: inline-flex;
   align-items: center;
-  background: map.get($palette, 'black');
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border-radius: 2rem;
-  min-width: fit-content;
+  min-width: max-content;
   max-width: max-content;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: rem(map.get($font-sizes, 'base-medium'));
+  background: map.get($palette, 'black');
+  color: #fff;
   transition: background-color 0.3s ease-in;
 
   &:hover {
@@ -45,12 +46,12 @@ a {
   }
 
   &__icon {
-    background-color: #fff;
-    border-radius: 50%;
-    min-width: 25px;
-    height: 25px;
-    margin-left: rem(10);
     display: inline-block;
+    margin-left: rem(10);
+    height: 25px;
+    min-width: 25px;
+    border-radius: 50%;
+    background-color: #fff;
   }
 }
 
@@ -76,16 +77,15 @@ a {
 */
 
 .paywall-component {
-  font-family: sans-serif;
+  font-family: "forma-djr-text", sans-serif;
   font-weight: 400;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000;
   margin: auto;
 
   &__container {
-    max-width: rem(1160);
+    max-width: rem(1165);
     padding: rem(40) rem(25);
-    margin: auto;
+    margin: 0 auto;
 
     > :not(:first-child) {
       margin-top: rem(50);
@@ -93,7 +93,8 @@ a {
   }
 
   &__title {
-    font-size: 2.5rem;
+    font-size: rem(map.get($font-sizes, 'header-xlarge'));
+    line-height: 130%;
     max-width: 75%;
     font-weight: inherit;
   }
@@ -114,23 +115,24 @@ a {
   }
 
   &__subtitles-text {
-    font-size: 1.5em;
+    font-size: rem(map.get($font-sizes, 'header-medium'));
+    line-height: 130%;
   }
 
   &__options {
     display: flex;
     flex-wrap: wrap;
-    gap: rem(50);
+    gap: rem(60);
 
     //remove space between items before calculating their width
     > * {
-      max-width: calc((100% - rem(100)) / 3);
+      max-width: calc((100% - rem(120)) / 3);
       flex-grow: 1;
     }
   }
 }
 
-@media all and (max-width: 488px) {
+@media all and (max-width: 580px) {
   .paywall-component {
     &__title {
       max-width: 100%;
@@ -145,6 +147,128 @@ a {
     }
   }
 }
+
+.option-item {
+  display: flex;
+  height: 400px;
+  min-width: min-content;
+  padding: rem(45) rem(25);
+  color: #fff;
+
+  &__name {
+    padding: 0;
+    font-size: rem(map.get($font-sizes, 'header-large'));
+    writing-mode: vertical-rl;
+    text-align: right;
+    transform: rotate(180deg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 rem(25);
+  }
+
+  &__title {
+    font-size: rem(map.get($font-sizes, 'header-medium'));
+    line-height: 130%;
+    font-weight: inherit;
+    padding-bottom: rem(25);
+    max-width: min-content;
+  }
+}
+
+/*
+  • Pricing item
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.pricing-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding-top: rem(25);
+
+  &__title,
+  &__option {
+    font-size: rem(map.get($font-sizes, 'base-small'));
+  }
+
+  &__price {
+    font-size: rem(map.get($font-sizes, 'header-large'));
+    margin: rem(10) 0;
+    line-height: 130%;
+  }
+
+  &__list {
+    padding: rem(30) 0;
+
+    // Todo: fix list circle style
+    li {
+      margin-bottom: rem(30);
+    }
+  }
+}
+
+/*
+  • paywall cta
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+.paywall-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: rem(50);
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  //remove space between items before calculating their width
+  > * {
+    width: calc((100% - rem(125)) / 3);
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .pricing-item {
+    padding-left: rem(50);
+    padding-right: rem(50);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: none;
+    padding-top: 0;
+
+    &__price {
+      font-size: 2em;
+      margin: rem(10) 0 ;
+    }
+  }
+
+  &.text-white {
+    color: #fff;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .paywall-cta {
+    > * {
+      width: 100%;
+    }
+
+    .pricing-item {
+      padding-left: 0;
+      border-left: 0;
+      padding-top: rem(50);
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
 
 /*
   • --push styles
@@ -208,9 +332,7 @@ a {
   .option-item {
     display: flex;
     height: max-content;
-    min-width: unset;
-    color: #fff;
-    font-weight: 500;
+    min-width: min-content;
 
     &__name {
       padding: 0;
@@ -259,125 +381,3 @@ a {
   • Option item
   ---------- ---------- ---------- ---------- ----------
 */
-
-.option-item {
-  display: flex;
-  height: 400px;
-  min-width: fit-content;
-  padding: rem(45) rem(25);
-  color: #fff;
-  font-weight: 500;
-
-  &__name {
-    padding: 0;
-    font-size: rem(35);
-    writing-mode: vertical-rl;
-    text-align: right;
-    transform: rotate(180deg);
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 0 rem(25);
-  }
-
-  &__title {
-    font-size: 1.3em;
-    line-height: 2rem;
-    font-weight: inherit;
-    padding-bottom: rem(25);
-    max-width: min-content;
-  }
-}
-
-/*
-  • Pricing item
-  ---------- ---------- ---------- ---------- ----------
-*/
-
-.pricing-item {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  padding-top: rem(25);
-
-  &__title,
-  &__option {
-    font-size: 0.8em;
-    line-height: 1rem;
-  }
-
-  &__price {
-    font-size: 2em;
-    font-weight: 400;
-  }
-
-  &__list {
-    padding: rem(25) 0;
-
-    // Todo: fix list circle style
-    li {
-      margin-bottom: rem(25);
-    }
-  }
-}
-
-/*
-  • paywall cta
-  ---------- ---------- ---------- ---------- ----------
-*/
-
-.paywall-cta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: rem(50);
-  align-items: center;
-  padding: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-
-  //remove space between items before calculating their width
-  > * {
-    width: calc((100% - rem(125)) / 3);
-  }
-
-  &__title {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .pricing-item {
-    padding-left: rem(50);
-    padding-right: rem(50);
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    border-top: none;
-    padding-top: 0;
-
-    &__price {
-      font-size: 2em;
-      margin: rem(10) 0 ;
-    }
-  }
-
-  &.text-white {
-    color: #fff;
-  }
-}
-
-@media all and (max-width: 768px) {
-  .paywall-cta {
-    > * {
-      width: 100%;
-    }
-
-    .pricing-item {
-      padding-left: 0;
-      border-left: 0;
-      padding-top: rem(50);
-      border-top: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  }
-}

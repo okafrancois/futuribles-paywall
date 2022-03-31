@@ -31,7 +31,15 @@ $palette: (
         'yellow': #F3BC69,
 );
 
-$ref-space: rem(30);
+$font-sizes:  (
+            'header-small': 21,
+            'header-medium': 27,
+            'header-large': 35,
+            'header-xlarge': 45,
+            'base-small': 14,
+            'base-medium': 18,
+
+);
 
 /*
   • Functions
