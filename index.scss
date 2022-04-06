@@ -53,6 +53,11 @@ a {
     border-radius: 50%;
     background-color: #fff;
   }
+
+  @media all and (max-width: 480px) {
+    padding: 1rem 1.5rem;
+    margin-top: rem(15);
+  }
 }
 
 .bg-red {
@@ -84,7 +89,7 @@ a {
 
   &__container {
     max-width: rem(1165);
-    padding: rem(40) rem(25);
+    padding: rem(50) rem(25);
     margin: 0 auto;
 
     > :not(:first-child) {
@@ -112,6 +117,7 @@ a {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem 4rem;
+    width: 100%;
   }
 
   &__subtitles-text {
@@ -132,25 +138,40 @@ a {
   }
 }
 
-@media all and (max-width: 580px) {
+/*
+  • Base Styles on mobile
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+@media all and (max-width: 480px) {
   .paywall-component {
     &__title {
       max-width: 100%;
+      line-height: initial;
+    }
+
+    &__subtitles-text {
+      font-size: rem(map.get($font-sizes, 'base-medium'));
     }
 
     &__options {
       gap: rem(25);
 
       > * {
+        max-width: 100%;
         width: 100%;
       }
     }
   }
 }
 
+/*
+  • Option item Styles
+  ---------- ---------- ---------- ---------- ----------
+*/
+
 .option-item {
   display: flex;
-  height: 400px;
   min-width: min-content;
   padding: rem(45) rem(25);
   color: #fff;
@@ -177,6 +198,24 @@ a {
     padding-bottom: rem(25);
     max-width: min-content;
   }
+
+  &__link {
+    margin-top: rem(45);
+  }
+}
+
+/*
+  • Option item Styles on mobile
+  ---------- ---------- ---------- ---------- ----------
+*/
+
+@media all and (max-width: 480px) {
+  .option-item {
+    &__title {
+      font-size: rem(map.get($font-sizes, 'header-small'));
+    }
+  }
+
 }
 
 /*
@@ -201,17 +240,21 @@ a {
     margin: rem(10) 0;
     line-height: 130%;
   }
+}
 
-  &__list {
-    padding: rem(30) 0;
 
-    // Todo: fix list circle style
-    li {
-      margin-bottom: rem(30);
+@media all and (max-width: 480px) {
+  .pricing-item {
+    &__title,
+    &__option {
+      font-size: rem(map.get($font-sizes, 'base-small'));
+    }
+
+    &__price {
+      font-size: rem(map.get($font-sizes, 'header-medium'));
     }
   }
 }
-
 /*
   • paywall cta
   ---------- ---------- ---------- ---------- ----------
@@ -221,18 +264,18 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: rem(50);
+  gap: rem(60);
   align-items: center;
   padding: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
 
   //remove space between items before calculating their width
   > * {
-    width: calc((100% - rem(125)) / 3);
+    width: calc((100% - rem(150)) / 3);
   }
 
   &__title {
-    font-size: 1.5rem;
+    font-size: rem(map.get($font-sizes, 'header-medium'));
     line-height: 2rem;
   }
 
@@ -244,13 +287,16 @@ a {
     padding-top: 0;
 
     &__price {
-      font-size: 2em;
-      margin: rem(10) 0 ;
+      font-size: rem(map.get($font-sizes, 'header-large'));
     }
   }
 
   &.text-white {
     color: #fff;
+  }
+
+  .option-item__link {
+    margin: 0;
   }
 }
 
@@ -270,16 +316,33 @@ a {
 }
 
 
+@media all and (max-width: 480px) {
+  .paywall-cta {
+    gap: 0;
+
+    > * {
+      width: 100%;
+    }
+
+    &__title {
+      margin-bottom: rem(25 );
+    }
+
+    .pricing-item {
+      padding: rem(25) 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+
 /*
   • --push styles
   ---------- ---------- ---------- ---------- ----------
 */
 
-.--push {
+.--push.paywall-component {
   .paywall-component {
-    &__subtitles-text {
-      display: none;
-    }
     &__headers {
       display: flex;
       justify-content: space-between;
@@ -289,6 +352,14 @@ a {
       > :not(:first-child) {
         margin-top: rem(10);
       }
+    }
+
+    &__subtitles {
+      max-width: fit-content;
+    }
+
+    &__subtitles-text {
+      display: none;
     }
   }
 }
@@ -300,7 +371,6 @@ a {
 
 .--pro.paywall-component {
   .pricing-item {
-
     &__title {
       font-size: 0.8rem;
     }
@@ -316,31 +386,22 @@ a {
   .paywall-component {
     &__options {
       display: flex;
-      align-items: stretch;
-      justify-content: stretch;
       flex-wrap: wrap;
-      gap: rem(50);
+      gap: rem(60);
 
       //remove space between items before calculating their width
-      > * {
-        max-width: calc((100% - rem(50)) / 2);
-        flex-grow: 1;
+      > .option-item {
+        width: calc((100% - rem(60)) / 2);
+        max-width: 100%;
+        min-height: 100%;
       }
     }
   }
 
   .option-item {
     display: flex;
-    height: max-content;
     min-width: min-content;
-
-    &__name {
-      padding: 0;
-      font-size: rem(35);
-      writing-mode: vertical-rl;
-      text-align: right;
-      transform: rotate(180deg);
-    }
+    height: unset;
 
     &__content {
       display: flex;
@@ -350,28 +411,50 @@ a {
     }
 
     &__title {
-      min-height: rem(80);
+      flex-grow: 1;
       padding-bottom: rem(15);
       max-width: 100%;
     }
 
     &__pricing {
-      padding: rem(15) 0;
+      padding: rem(20) 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    &__link {
+      margin-top: 0;
+    }
+  }
+
+  .pricing-item {
+    flex-grow: initial;
+
+    &__price{
+      margin: 0;
+    }
+
+    &__list {
+      padding: rem(30) 0 0;
+      font-size: rem(map.get($font-sizes, 'base-medium'));
+      
+      li {
+        margin-bottom: rem(25);
+      }
+
+      ul {
+        list-style: disc;
+      }
     }
   }
 }
 
-@media all and (max-width: 488px) {
-  .paywall-component {
-    &__options {
-
-      //remove space between items before calculating their width
-      > * {
-        //Todo: find a way to remove !important use here
-        max-width: 100% !important;
-        width: 100%;
-        flex-grow: 1;
+@media all and (max-width: 480px) {
+  .--for-vigie.paywall-component {
+    .paywall-component {
+      .pricing-item {
+        &__list {
+          font-size: rem(map.get($font-sizes, 'base-small')) !important;
+        }
       }
     }
   }

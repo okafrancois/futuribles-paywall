@@ -61,6 +61,12 @@ a {
   border-radius: 50%;
   background-color: #fff;
 }
+@media all and (max-width: 480px) {
+  .c-button {
+    padding: 1rem 1.5rem;
+    margin-top: 0.9375rem;
+  }
+}
 
 .bg-red {
   background: #C6182F;
@@ -90,7 +96,7 @@ a {
 }
 .paywall-component__container {
   max-width: 72.8125rem;
-  padding: 2.5rem 1.5625rem;
+  padding: 3.125rem 1.5625rem;
   margin: 0 auto;
 }
 .paywall-component__container > :not(:first-child) {
@@ -112,6 +118,7 @@ a {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem 4rem;
+  width: 100%;
 }
 .paywall-component__subtitles-text {
   font-size: 1.6875rem;
@@ -127,20 +134,32 @@ a {
   flex-grow: 1;
 }
 
-@media all and (max-width: 580px) {
+/*
+  • Base Styles on mobile
+  ---------- ---------- ---------- ---------- ----------
+*/
+@media all and (max-width: 480px) {
   .paywall-component__title {
     max-width: 100%;
+    line-height: initial;
+  }
+  .paywall-component__subtitles-text {
+    font-size: 1.125rem;
   }
   .paywall-component__options {
     gap: 1.5625rem;
   }
   .paywall-component__options > * {
+    max-width: 100%;
     width: 100%;
   }
 }
+/*
+  • Option item Styles
+  ---------- ---------- ---------- ---------- ----------
+*/
 .option-item {
   display: flex;
-  height: 400px;
   min-width: min-content;
   padding: 2.8125rem 1.5625rem;
   color: #fff;
@@ -165,7 +184,19 @@ a {
   padding-bottom: 1.5625rem;
   max-width: min-content;
 }
+.option-item__link {
+  margin-top: 2.8125rem;
+}
 
+/*
+  • Option item Styles on mobile
+  ---------- ---------- ---------- ---------- ----------
+*/
+@media all and (max-width: 480px) {
+  .option-item__title {
+    font-size: 1.3125rem;
+  }
+}
 /*
   • Pricing item
   ---------- ---------- ---------- ---------- ----------
@@ -185,13 +216,15 @@ a {
   margin: 0.625rem 0;
   line-height: 130%;
 }
-.pricing-item__list {
-  padding: 1.875rem 0;
-}
-.pricing-item__list li {
-  margin-bottom: 1.875rem;
-}
 
+@media all and (max-width: 480px) {
+  .pricing-item__title, .pricing-item__option {
+    font-size: 0.875rem;
+  }
+  .pricing-item__price {
+    font-size: 1.6875rem;
+  }
+}
 /*
   • paywall cta
   ---------- ---------- ---------- ---------- ----------
@@ -200,16 +233,16 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 3.125rem;
+  gap: 3.75rem;
   align-items: center;
   padding: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .paywall-cta > * {
-  width: calc((100% - 7.8125rem) / 3);
+  width: calc((100% - 9.375rem) / 3);
 }
 .paywall-cta__title {
-  font-size: 1.5rem;
+  font-size: 1.6875rem;
   line-height: 2rem;
 }
 .paywall-cta .pricing-item {
@@ -220,11 +253,13 @@ a {
   padding-top: 0;
 }
 .paywall-cta .pricing-item__price {
-  font-size: 2em;
-  margin: 0.625rem 0;
+  font-size: 2.1875rem;
 }
 .paywall-cta.text-white {
   color: #fff;
+}
+.paywall-cta .option-item__link {
+  margin: 0;
 }
 
 @media all and (max-width: 768px) {
@@ -238,21 +273,39 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 }
+@media all and (max-width: 480px) {
+  .paywall-cta {
+    gap: 0;
+  }
+  .paywall-cta > * {
+    width: 100%;
+  }
+  .paywall-cta__title {
+    margin-bottom: 1.5625rem;
+  }
+  .paywall-cta .pricing-item {
+    padding: 1.5625rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
 /*
   • --push styles
   ---------- ---------- ---------- ---------- ----------
 */
-.--push .paywall-component__subtitles-text {
-  display: none;
-}
-.--push .paywall-component__headers {
+.--push.paywall-component .paywall-component__headers {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
 }
-.--push .paywall-component__headers > :not(:first-child) {
+.--push.paywall-component .paywall-component__headers > :not(:first-child) {
   margin-top: 0.625rem;
+}
+.--push.paywall-component .paywall-component__subtitles {
+  max-width: fit-content;
+}
+.--push.paywall-component .paywall-component__subtitles-text {
+  display: none;
 }
 
 /*
@@ -269,26 +322,18 @@ a {
 */
 .--for-vigie.paywall-component .paywall-component__options {
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
   flex-wrap: wrap;
-  gap: 3.125rem;
+  gap: 3.75rem;
 }
-.--for-vigie.paywall-component .paywall-component__options > * {
-  max-width: calc((100% - 3.125rem) / 2);
-  flex-grow: 1;
+.--for-vigie.paywall-component .paywall-component__options > .option-item {
+  width: calc((100% - 3.75rem) / 2);
+  max-width: 100%;
+  min-height: 100%;
 }
 .--for-vigie.paywall-component .option-item {
   display: flex;
-  height: max-content;
   min-width: min-content;
-}
-.--for-vigie.paywall-component .option-item__name {
-  padding: 0;
-  font-size: 2.1875rem;
-  writing-mode: vertical-rl;
-  text-align: right;
-  transform: rotate(180deg);
+  height: unset;
 }
 .--for-vigie.paywall-component .option-item__content {
   display: flex;
@@ -297,20 +342,37 @@ a {
   padding: 0 1.5625rem;
 }
 .--for-vigie.paywall-component .option-item__title {
-  min-height: 5rem;
+  flex-grow: 1;
   padding-bottom: 0.9375rem;
   max-width: 100%;
 }
 .--for-vigie.paywall-component .option-item__pricing {
-  padding: 0.9375rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+.--for-vigie.paywall-component .option-item__link {
+  margin-top: 0;
+}
+.--for-vigie.paywall-component .pricing-item {
+  flex-grow: initial;
+}
+.--for-vigie.paywall-component .pricing-item__price {
+  margin: 0;
+}
+.--for-vigie.paywall-component .pricing-item__list {
+  padding: 1.875rem 0 0;
+  font-size: 1.125rem;
+}
+.--for-vigie.paywall-component .pricing-item__list li {
+  margin-bottom: 1.5625rem;
+}
+.--for-vigie.paywall-component .pricing-item__list ul {
+  list-style: disc;
+}
 
-@media all and (max-width: 488px) {
-  .paywall-component__options > * {
-    max-width: 100% !important;
-    width: 100%;
-    flex-grow: 1;
+@media all and (max-width: 480px) {
+  .--for-vigie.paywall-component .paywall-component .pricing-item__list {
+    font-size: 0.875rem !important;
   }
 }
 /*
