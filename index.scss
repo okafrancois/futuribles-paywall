@@ -382,11 +382,24 @@ a {
     }
 
     &__subtitles {
-      max-width: fit-content;
+      max-width: 25%;
+      justify-content: flex-end;
     }
 
     &__subtitles-text {
       display: none;
+    }
+  }
+}
+
+@media all and (max-width: 480px) {
+  .--push.paywall-component {
+    .paywall-component {
+
+      &__subtitles {
+        max-width: 100%;
+        justify-content: initial;
+      }
     }
   }
 }

@@ -339,12 +339,19 @@ a {
   margin-top: 0.625rem;
 }
 .--push.paywall-component .paywall-component__subtitles {
-  max-width: fit-content;
+  max-width: 25%;
+  justify-content: flex-end;
 }
 .--push.paywall-component .paywall-component__subtitles-text {
   display: none;
 }
 
+@media all and (max-width: 480px) {
+  .--push.paywall-component .paywall-component__subtitles {
+    max-width: 100%;
+    justify-content: initial;
+  }
+}
 /*
   • --for-vigie styles
   ---------- ---------- ---------- ---------- ----------
