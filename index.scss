@@ -7,10 +7,11 @@
   ---------- ---------- ---------- ---------- ----------
   • Config
   • Base Styles
+  • Option item styles
+  • Pricing item styles
+  • Paywall cta styles
   • --push Styles
-  • --pro Styles
-  • Option item
-  • Pricing item
+  • --for-vigie Styles
 */
 
 /*
@@ -209,7 +210,7 @@ a {
 }
 
 /*
-  • Pricing item
+  • Pricing item styles
   ---------- ---------- ---------- ---------- ----------
 */
 
@@ -233,7 +234,6 @@ a {
   }
 }
 
-
 @media all and (max-width: 480px) {
   .pricing-item {
     &__title,
@@ -248,7 +248,7 @@ a {
 }
 
 /*
-  • paywall cta
+  • Paywall cta styles
   ---------- ---------- ---------- ---------- ----------
 */
 
@@ -311,7 +311,6 @@ a {
     }
   }
 }
-
 
 /*
   • --push styles

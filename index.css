@@ -18,10 +18,11 @@
   ---------- ---------- ---------- ---------- ----------
   • Config
   • Base Styles
+  • Option item styles
+  • Pricing item styles
+  • Paywall cta styles
   • --push Styles
-  • --pro Styles
-  • Option item
-  • Pricing item
+  • --for-vigie Styles
 */
 /*
   • Config
@@ -190,7 +191,7 @@ a {
   }
 }
 /*
-  • Pricing item
+  • Pricing item styles
   ---------- ---------- ---------- ---------- ----------
 */
 .pricing-item {
@@ -219,7 +220,7 @@ a {
   }
 }
 /*
-  • paywall cta
+  • Paywall cta styles
   ---------- ---------- ---------- ---------- ----------
 */
 .paywall-cta {
