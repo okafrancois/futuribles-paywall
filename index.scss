@@ -35,7 +35,7 @@ a {
   align-items: center;
   min-width: max-content;
   max-width: max-content;
-  padding: 0.5rem 1rem;
+  padding: rem(12) rem(18);
   border-radius: 2rem;
   font-size: rem(map.get($font-sizes, 'base-medium'));
   background: map.get($palette, 'black');
@@ -44,10 +44,19 @@ a {
 
   &:hover {
     background: rgba(0, 0, 0, 0.70);
+
+    .c-button__icon {
+      animation-name: bounceAlpha;
+      animation-duration: .6s;
+      animation-delay: .2s;
+      animation-iteration-count: initial;
+      animation-timing-function: ease-out;
+    }
   }
 
-  &__icon {
-    display: inline-block;
+  &__round {
+    display: inline-flex;
+    align-items: center;
     margin-left: rem(10);
     height: 25px;
     min-width: 25px;
@@ -55,25 +64,66 @@ a {
     background-color: #fff;
   }
 
+  &__icon {
+    height: 25px;
+    min-width: 25px;
+    animation-name: bounceAlphax;
+    animation-duration: .6s;
+    animation-delay: .2s;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out;
+  }
+
   @media all and (max-width: 480px) {
-    padding: 1rem 1.5rem;
     margin-top: rem(15);
   }
 }
 
-.bg-red {
+@keyframes bounceAlpha{
+  0% {
+    opacity:1;
+    transform:translate(0) scale(1)
+  }
+  25% {
+    opacity:0;
+    transform:translate(10px) scale(.9)
+  }
+  26%{opacity:0;transform:translate(-10px) scale(.9)}
+  55%{opacity:1;transform:translate(0) scale(1)}
+}
+
+@keyframes bounceAlphax{
+  0% {
+    opacity:1;
+    transform:translate(0) scale(1)
+  }
+  25%{
+    opacity:0;
+    transform:translate(-10px) scale(.9)
+  }
+  26%{
+    opacity:0;
+    transform:translate(10px) scale(.9)
+  }
+  55%{
+    opacity:1;
+    transform:translate(0) scale(1)
+  }
+}
+
+.paywall-bg-red {
   background: map.get($palette, 'red');;
 }
 
-.bg-blue {
+.paywall-bg-blue {
   background: map.get($palette, 'blue');;
 }
 
-.bg-purple {
+.paywall-bg-purple {
   background: map.get($palette, 'purple');;
 }
 
-.bg-green {
+.paywall-bg-green {
   background: map.get($palette, 'green');;
 }
 
@@ -83,15 +133,15 @@ a {
 */
 
 .paywall-component {
+  margin: auto;
   font-family: "forma-djr-text", sans-serif;
   font-weight: 400;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  margin: auto;
 
   &__container {
     max-width: rem(1165);
-    padding: rem(50) rem(25);
     margin: 0 auto;
+    padding: rem(50) rem(25);
 
     > :not(:first-child) {
       margin-top: rem(50);
@@ -144,6 +194,7 @@ a {
     &__title {
       max-width: 100%;
       line-height: initial;
+      font-size: rem(map.get($font-sizes, 'header-large'));
     }
 
     &__subtitles-text {

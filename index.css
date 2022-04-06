@@ -44,7 +44,7 @@ a {
   align-items: center;
   min-width: max-content;
   max-width: max-content;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.125rem;
   border-radius: 2rem;
   font-size: 1.125rem;
   background: #000;
@@ -54,34 +54,86 @@ a {
 .c-button:hover {
   background: rgba(0, 0, 0, 0.7);
 }
-.c-button__icon {
-  display: inline-block;
+.c-button:hover .c-button__icon {
+  animation-name: bounceAlpha;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s;
+  animation-iteration-count: initial;
+  animation-timing-function: ease-out;
+}
+.c-button__round {
+  display: inline-flex;
+  align-items: center;
   margin-left: 0.625rem;
   height: 25px;
   min-width: 25px;
   border-radius: 50%;
   background-color: #fff;
 }
+.c-button__icon {
+  height: 25px;
+  min-width: 25px;
+  animation-name: bounceAlphax;
+  animation-duration: 0.6s;
+  animation-delay: 0.2s;
+  animation-iteration-count: initial;
+  animation-timing-function: ease-out;
+}
 @media all and (max-width: 480px) {
   .c-button {
-    padding: 1rem 1.5rem;
     margin-top: 0.9375rem;
   }
 }
 
-.bg-red {
+@keyframes bounceAlpha {
+  0% {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+  25% {
+    opacity: 0;
+    transform: translate(10px) scale(0.9);
+  }
+  26% {
+    opacity: 0;
+    transform: translate(-10px) scale(0.9);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+}
+@keyframes bounceAlphax {
+  0% {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+  25% {
+    opacity: 0;
+    transform: translate(-10px) scale(0.9);
+  }
+  26% {
+    opacity: 0;
+    transform: translate(10px) scale(0.9);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+}
+.paywall-bg-red {
   background: #C6182F;
 }
 
-.bg-blue {
+.paywall-bg-blue {
   background: #2E5EAA;
 }
 
-.bg-purple {
+.paywall-bg-purple {
   background: #632A6C;
 }
 
-.bg-green {
+.paywall-bg-green {
   background: #32A287;
 }
 
@@ -90,15 +142,15 @@ a {
   ---------- ---------- ---------- ---------- ----------
 */
 .paywall-component {
+  margin: auto;
   font-family: "forma-djr-text", sans-serif;
   font-weight: 400;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-  margin: auto;
 }
 .paywall-component__container {
   max-width: 72.8125rem;
-  padding: 3.125rem 1.5625rem;
   margin: 0 auto;
+  padding: 3.125rem 1.5625rem;
 }
 .paywall-component__container > :not(:first-child) {
   margin-top: 3.125rem;
@@ -139,6 +191,7 @@ a {
   .paywall-component__title {
     max-width: 100%;
     line-height: initial;
+    font-size: 2.1875rem;
   }
   .paywall-component__subtitles-text {
     font-size: 1.125rem;
