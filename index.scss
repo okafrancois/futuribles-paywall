@@ -138,11 +138,6 @@ a {
   }
 }
 
-/*
-  • Base Styles on mobile
-  ---------- ---------- ---------- ---------- ----------
-*/
-
 @media all and (max-width: 480px) {
   .paywall-component {
     &__title {
@@ -155,7 +150,7 @@ a {
     }
 
     &__options {
-      gap: rem(25);
+      gap: rem(50);
 
       > * {
         max-width: 100%;
@@ -204,11 +199,6 @@ a {
   }
 }
 
-/*
-  • Option item Styles on mobile
-  ---------- ---------- ---------- ---------- ----------
-*/
-
 @media all and (max-width: 480px) {
   .option-item {
     &__title {
@@ -239,6 +229,7 @@ a {
     font-size: rem(map.get($font-sizes, 'header-large'));
     margin: rem(10) 0;
     line-height: 130%;
+    min-width: max-content;
   }
 }
 
@@ -255,6 +246,7 @@ a {
     }
   }
 }
+
 /*
   • paywall cta
   ---------- ---------- ---------- ---------- ----------
@@ -302,22 +294,6 @@ a {
 
 @media all and (max-width: 768px) {
   .paywall-cta {
-    > * {
-      width: 100%;
-    }
-
-    .pricing-item {
-      padding-left: 0;
-      border-left: 0;
-      padding-top: rem(50);
-      border-top: 1px solid rgba(0, 0, 0, 0.2);
-    }
-  }
-}
-
-
-@media all and (max-width: 480px) {
-  .paywall-cta {
     gap: 0;
 
     > * {
@@ -329,6 +305,7 @@ a {
     }
 
     .pricing-item {
+      border-left: 0;
       padding: rem(25) 0;
       border-top: 1px solid rgba(0, 0, 0, 0.2);
     }
@@ -360,19 +337,6 @@ a {
 
     &__subtitles-text {
       display: none;
-    }
-  }
-}
-
-/*
-  • --pro styles
-  ---------- ---------- ---------- ---------- ----------
-*/
-
-.--pro.paywall-component {
-  .pricing-item {
-    &__title {
-      font-size: 0.8rem;
     }
   }
 }
@@ -436,7 +400,7 @@ a {
     &__list {
       padding: rem(30) 0 0;
       font-size: rem(map.get($font-sizes, 'base-medium'));
-      
+
       li {
         margin-bottom: rem(25);
       }
@@ -450,17 +414,10 @@ a {
 
 @media all and (max-width: 480px) {
   .--for-vigie.paywall-component {
-    .paywall-component {
-      .pricing-item {
-        &__list {
-          font-size: rem(map.get($font-sizes, 'base-small')) !important;
-        }
+    .pricing-item {
+      &__list li{
+        font-size: rem(map.get($font-sizes, 'base-small'));
       }
     }
   }
 }
-
-/*
-  • Option item
-  ---------- ---------- ---------- ---------- ----------
-*/
