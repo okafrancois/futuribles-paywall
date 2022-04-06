@@ -157,7 +157,7 @@ a {
 */
 .option-item {
   display: flex;
-  min-width: min-content;
+  min-width: 300px;
   padding: 2.8125rem 1.5625rem;
   color: #fff;
 }
