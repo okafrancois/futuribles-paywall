@@ -82,6 +82,7 @@ a {
 @media all and (max-width: 480px) {
   .c-button {
     margin-top: 0.9375rem;
+    font-size: 1rem;
   }
 }
 
