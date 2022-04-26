@@ -58,3 +58,21 @@ $font-sizes:  (
   @return $number;
 }
 
+@mixin up($from) {
+  @media screen and (min-width: $from) {
+    @content;
+  }
+}
+
+@mixin down($from) {
+  @media screen and (max-width: $from) {
+    @content;
+  }
+}
+
+@mixin between($min, $max) {
+
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+}

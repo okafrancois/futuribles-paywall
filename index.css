@@ -184,8 +184,18 @@ a {
   gap: 3.75rem;
 }
 .paywall-component__options > * {
-  max-width: calc((100% - 7.5rem) / 3);
+  max-width: 100%;
   flex-grow: 1;
+}
+@media screen and (min-width: 720px) {
+  .paywall-component__options > * {
+    max-width: calc((100% - 3.75rem) / 2);
+  }
+}
+@media screen and (min-width: 1070px) {
+  .paywall-component__options > * {
+    max-width: calc((100% - 7.5rem) / 3);
+  }
 }
 
 @media all and (max-width: 480px) {
@@ -211,7 +221,6 @@ a {
 */
 .option-item {
   display: flex;
-  min-width: 300px;
   padding: 2.8125rem 1.5625rem;
   color: #fff;
 }
@@ -233,7 +242,6 @@ a {
   line-height: 130%;
   font-weight: inherit;
   padding-bottom: 1.5625rem;
-  max-width: min-content;
 }
 .option-item__link {
   margin-top: 2.8125rem;
@@ -257,12 +265,13 @@ a {
 }
 .pricing-item__title, .pricing-item__option {
   font-size: 0.875rem;
+  max-width: fit-content;
 }
 .pricing-item__price {
   font-size: 2.1875rem;
   margin: 0.625rem 0;
   line-height: 130%;
-  min-width: max-content;
+  max-width: fit-content;
 }
 
 @media all and (max-width: 480px) {
@@ -369,7 +378,6 @@ a {
 }
 .--for-vigie.paywall-component .option-item {
   display: flex;
-  min-width: min-content;
   height: unset;
 }
 .--for-vigie.paywall-component .option-item__content {

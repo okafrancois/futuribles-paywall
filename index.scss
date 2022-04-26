@@ -184,8 +184,16 @@ a {
 
     //remove space between items before calculating their width
     > * {
-      max-width: calc((100% - rem(120)) / 3);
+      max-width: 100%;
       flex-grow: 1;
+
+      @include up('720px') {
+        max-width: calc((100% - 3.75rem) / 2);
+      }
+
+      @include up('1070px') {
+        max-width: calc((100% - 3.75rem * 2) / 3);
+      }
     }
   }
 }
@@ -220,7 +228,6 @@ a {
 
 .option-item {
   display: flex;
-  min-width: 300px;
   padding: rem(45) rem(25);
   color: #fff;
 
@@ -244,7 +251,6 @@ a {
     line-height: 130%;
     font-weight: inherit;
     padding-bottom: rem(25);
-    max-width: min-content;
   }
 
   &__link {
@@ -276,13 +282,14 @@ a {
   &__title,
   &__option {
     font-size: rem(map.get($font-sizes, 'base-small'));
+    max-width: fit-content;
   }
 
   &__price {
     font-size: rem(map.get($font-sizes, 'header-large'));
     margin: rem(10) 0;
     line-height: 130%;
-    min-width: max-content;
+    max-width: fit-content;
   }
 }
 
@@ -428,7 +435,6 @@ a {
 
   .option-item {
     display: flex;
-    min-width: min-content;
     height: unset;
 
     &__content {
