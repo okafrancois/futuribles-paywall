@@ -372,9 +372,14 @@ a {
   gap: 3.75rem;
 }
 .--for-vigie.paywall-component .paywall-component__options > .option-item {
-  width: calc((100% - 3.75rem) / 2);
+  width: 100%;
   max-width: 100%;
   min-height: 100%;
+}
+@media screen and (min-width: 720px) {
+  .--for-vigie.paywall-component .paywall-component__options > .option-item {
+    width: calc((100% - 3.75rem) / 2);
+  }
 }
 .--for-vigie.paywall-component .option-item {
   display: flex;
